@@ -14,7 +14,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <form method="POST" action="{{url('post')}}" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        <label>Name: </label><input type="text" name="name" vlaue=""/>{{$errors->first('name')}}<br>                            
+                        <label>Description: </label><input type="text" name="description" vlaue=""/>{{$errors->first('description')}}<br>
+                        <input type="submit" value="Save">
+                    </form>
                 </div>
             </div>
         </div>
