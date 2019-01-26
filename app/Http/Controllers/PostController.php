@@ -42,10 +42,10 @@ class PostController extends Controller
             'description'=>'required'
         ]);
         $posts = new Post();        
-        $items->user_id = Auth::user()->id;
-        $items->name = $request->name;
-        $items->description = $request->description;
-        $items->save();
+        $posts->user_id = Auth::user()->id;
+        $posts->name = $request->name;
+        $posts->description = $request->description;
+        $posts->save();
         return redirect()->back()->with('status', 'Successfully stored!!');
     }
 
