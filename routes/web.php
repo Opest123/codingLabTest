@@ -16,9 +16,15 @@ use App\Post;
 Route::resource('post', 'PostController');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/', function(){
+    $posts = Post::all();
+    return view('home')->with('posts', $posts);
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/post', 'PostController@index');
